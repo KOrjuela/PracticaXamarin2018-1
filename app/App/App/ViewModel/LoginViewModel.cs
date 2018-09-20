@@ -2,6 +2,9 @@
 {
     using System.Windows.Input;
 
+    /// <summary>
+    /// ViewModel Page Login
+    /// </summary>
     public class LoginViewModel
     {
         #region ViewModels
