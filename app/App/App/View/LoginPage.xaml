@@ -59,7 +59,7 @@
                             HeightRequest="46"
                             BackgroundColor="Navy"
                             HorizontalOptions="FillAndExpand"
-                            Command="{Binding OnClickLogin}"/>
+                            Command="{Binding EventLogin}"/>
                     <Button Text="Register"
                             TextColor="White"
                             BorderRadius="23"

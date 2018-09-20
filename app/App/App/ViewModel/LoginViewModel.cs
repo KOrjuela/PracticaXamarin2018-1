@@ -1,7 +1,9 @@
 ﻿namespace App.ViewModel
 {
+    using GalaSoft.MvvmLight.Command;
+    using System;
     using System.Windows.Input;
-     
+
     public class LoginViewModel
     {
         #region ViewModels
@@ -15,7 +17,18 @@
         #endregion
 
         #region OnClick
-        public ICommand OnClickLogin { get; set; }
+        public ICommand EventLogin
+        {
+            get
+            {
+                return new RelayCommand(TapEventLogin);
+            }
+        }
+
+        private void TapEventLogin()
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
         #region Contructors
