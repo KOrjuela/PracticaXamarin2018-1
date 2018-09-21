@@ -58,14 +58,16 @@
                             BorderRadius="23"
                             HeightRequest="46"
                             BackgroundColor="Navy"
-                            HorizontalOptions="FillAndExpand"
-                            Command="{Binding EventLogin}"/>
+                            HorizontalOptions="FillAndExpand"                            
+                            Command="{Binding EventLogin}"
+                            IsEnabled="{Binding IsEnable, Mode=TwoWay}"/>
                     <Button Text="Register"
                             TextColor="White"
                             BorderRadius="23"
                             HeightRequest="46"
                             BackgroundColor="Purple"
-                            HorizontalOptions="FillAndExpand"/>
+                            HorizontalOptions="FillAndExpand"
+                            IsEnabled="{Binding IsEnable, Mode=TwoWay}"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="Center"
