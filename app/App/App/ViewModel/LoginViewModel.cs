@@ -1,7 +1,7 @@
 ﻿namespace App.ViewModel
 {
     using GalaSoft.MvvmLight.Command;
-    using System.ComponentModel;
+    using global::App.View;
     using System.Windows.Input;
     using Utility;
     using Xamarin.Forms;
@@ -10,20 +10,23 @@
     {
         #region Attributes
         private string _password;
-
+        private string _email;
         private bool _isRunning;
-
         private bool _isEnable;
         #endregion
 
-        #region ViewModels
+        #region Properties
         public string Email
+        {
+            get { return this._email; }
+            set { UpdateValueProperty(ref this._email, value); }
+        }
+
+        public string Password
         {
             get { return this._password; }
             set { UpdateValueProperty(ref this._password, value); }
         }
-
-        public string Password { get; set; }
 
         public bool IsRunning
         {
@@ -40,16 +43,26 @@
         }
         #endregion
 
-        #region EventTap
-        public ICommand EventLogin
+        #region ActionTap
+        public ICommand TapLogin
         {
-            get
-            {
-                return new RelayCommand(TapEventLogin);
-            }
+            get { return new RelayCommand(EventLogin); }
         }
+        #endregion
 
-        private async void TapEventLogin()
+        #region Contructors
+        public LoginViewModel()
+        {
+            this.IsRemembered = true;
+            this.IsEnable = true;
+
+            /// http://restcountries.eu/rest/v2/all
+        }
+        #endregion
+
+        #region ActionEvent
+
+        private async void EventLogin()
         {
             if (string.IsNullOrEmpty(this.Email))
             {
@@ -82,26 +95,19 @@
                         "Email or Password incorret",
                         "Accept"
                     );
+                this.Password = string.Empty;
                 return;
             }
 
+            this.Email = string.Empty;
+            this.Password = string.Empty;
 
-            await Application.Current.MainPage.
-                DisplayAlert(
-                    "Error",
-                    "OK",
-                    "Accept"
-                );
-
+            MainViweModel.GetInstance().ViewModelLands = new LandsViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
         }
-        #endregion
 
-        #region Contructors
-        public LoginViewModel()
-        {
-            this.IsRemembered = true;
-            this.IsEnable = true;
-        }
         #endregion
     }
+
+
 }
