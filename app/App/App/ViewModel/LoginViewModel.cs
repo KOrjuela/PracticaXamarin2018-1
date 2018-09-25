@@ -1,9 +1,9 @@
 ﻿namespace App.ViewModel
 {
+    using BaseViewModels.Utility;
     using GalaSoft.MvvmLight.Command;
     using global::App.View;
     using System.Windows.Input;
-    using Utility;
     using Xamarin.Forms;
 
     public class LoginViewModel : BaseViewModel
@@ -54,9 +54,7 @@
         public LoginViewModel()
         {
             this.IsRemembered = true;
-            this.IsEnable = true;
-
-            /// http://restcountries.eu/rest/v2/all
+            this.IsEnable = true;  
         }
         #endregion
 
@@ -64,6 +62,9 @@
 
         private async void EventLogin()
         {
+            this.Email = "corjuela@gmail.com";
+            this.Password = "1234";
+
             if (string.IsNullOrEmpty(this.Email))
             {
                 await Application.Current.MainPage.

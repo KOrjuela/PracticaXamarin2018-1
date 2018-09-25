@@ -1,4 +1,4 @@
-﻿namespace Utility
+﻿namespace BaseViewModels.Utility
 {
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -9,6 +9,8 @@
     /// </summary>
     public class BaseViewModel : INotifyPropertyChanged
     {
+        #region UpdateProperty
+
         /// <summary>
         /// Representa el método [PropertyChangedEventHandler(object sender, PropertyChangedEventArgs e)]
         /// que controlará al evento PropertyChanged que se provoque cuando cambie una propiedad en un componente.
@@ -54,6 +56,10 @@
             property = value;
             OnPropertyChanged(propertyName);
         }
+
+        #endregion
+
+
 
     }
 }

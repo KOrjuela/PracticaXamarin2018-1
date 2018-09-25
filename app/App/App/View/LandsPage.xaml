@@ -5,10 +5,56 @@
              x:Class="App.View.LandsPage"
              Title="Lands">
     <ContentPage.Content>
-        <StackLayout BindingContext="{Binding Lands}">
-            <Label Text="Welcome to Xamarin.Forms!"
-                   VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="5"
+                     BindingContext="{Binding Lands}">
+            <ListView SeparatorVisibility="None"
+                      BackgroundColor="Silver"
+                      HasUnevenRows="true" 
+                      IsPullToRefreshEnabled="true"
+                      ItemsSource="{Binding Lands}"
+                      IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"                      
+                      RefreshCommand="{Binding RefreshCommand}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame CornerRadius="20"
+                                   HasShadow="true"
+                                   Margin="5">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectLandCommand}"/>
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <ffimageloading:CachedImage Grid.Column="0"
+                                                                HeightRequest="30"
+                                                                Source="{Binding Flag, Converter={StaticResource SvgImageSourceConverter}}"
+                                                                WidthRequest="60">
+                                    </ffimageloading:CachedImage>
+                                    <StackLayout Grid.Column="1"
+                                                 VerticalOptions="Center">
+                                        <Label FontAttributes="Bold"
+                                               FontSize="Medium" 
+                                               Text="{Binding Name}"
+                                               TextColor="Black">
+                                        </Label>
+                                        <Label Text="{Binding Capital}"
+                                               TextColor="Black">
+                                        </Label>
+                                    </StackLayout>
+                                    <Image Grid.Column="2"
+                                           HorizontalOptions="End" 
+                                           Source="ic_chevron_right">
+                                    </Image>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
