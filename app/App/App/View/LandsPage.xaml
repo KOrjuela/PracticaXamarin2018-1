@@ -5,52 +5,45 @@
              x:Class="App.View.LandsPage"
              Title="Lands">
     <ContentPage.Content>
-        <StackLayout Padding="5"
-                     BindingContext="{Binding Lands}">
-            <ListView SeparatorVisibility="None"
-                      BackgroundColor="Silver"
-                      HasUnevenRows="true" 
+        <StackLayout Padding="5"                     
+                     BindingContext="{Binding ViewModelLands}">
+            <SearchBar HeightRequest="46"
+                       BackgroundColor="Silver"  
+                       Placeholder="Search..."
+                       Text="{Binding TextFilter, Mode=TwoWay}"                       
+                       SearchCommand="{Binding ActionSearchInList}">
+            </SearchBar>
+            <ListView HasUnevenRows="true" 
+                      BackgroundColor="White"
+                      SeparatorVisibility="None"
                       IsPullToRefreshEnabled="true"
-                      ItemsSource="{Binding Lands}"
-                      IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"                      
-                      RefreshCommand="{Binding RefreshCommand}">
+                      ItemsSource="{Binding ListLands}"
+                      RefreshCommand="{Binding ActionRefreshList}"
+                      IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame CornerRadius="20"
-                                   HasShadow="true"
-                                   Margin="5">
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding SelectLandCommand}"/>
-                                </Frame.GestureRecognizers>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-                                    <ffimageloading:CachedImage Grid.Column="0"
-                                                                HeightRequest="30"
-                                                                Source="{Binding Flag, Converter={StaticResource SvgImageSourceConverter}}"
-                                                                WidthRequest="60">
-                                    </ffimageloading:CachedImage>
-                                    <StackLayout Grid.Column="1"
-                                                 VerticalOptions="Center">
-                                        <Label FontAttributes="Bold"
-                                               FontSize="Medium" 
-                                               Text="{Binding Name}"
-                                               TextColor="Black">
-                                        </Label>
-                                        <Label Text="{Binding Capital}"
-                                               TextColor="Black">
-                                        </Label>
-                                    </StackLayout>
-                                    <Image Grid.Column="2"
-                                           HorizontalOptions="End" 
-                                           Source="ic_chevron_right">
-                                    </Image>
-                                </Grid>
-                            </Frame>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0"
+                                             VerticalOptions="Center">
+                                    <Label FontSize="Medium" 
+                                           TextColor="Black"
+                                           FontAttributes="Bold"
+                                           Text="{Binding Name}">
+                                    </Label>
+                                    <Label TextColor="Black"
+                                           Text="{Binding Capital}">
+                                    </Label>
+                                </StackLayout>
+                                <Image Grid.Column="1"
+                                       HorizontalOptions="End" 
+                                       Source="chevron_right">
+                                </Image>
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

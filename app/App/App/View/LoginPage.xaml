@@ -59,7 +59,7 @@
                             HeightRequest="46"
                             BackgroundColor="Navy"
                             HorizontalOptions="FillAndExpand"                            
-                            Command="{Binding TapLogin}"
+                            Command="{Binding ActionTapLogin}"
                             IsEnabled="{Binding IsEnable, Mode=TwoWay}"/>
                     <Button Text="Register"
                             TextColor="White"

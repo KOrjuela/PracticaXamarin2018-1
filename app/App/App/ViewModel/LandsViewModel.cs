@@ -2,18 +2,27 @@
 {
     using BaseViewModels.Utility;
     using COrjuela.Utility.BaseServices;
+    using GalaSoft.MvvmLight.Command;
     using global::App.Model.Entities;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Linq;
+    using System.Windows.Input;
     using Xamarin.Forms;
 
     public class LandsViewModel : BaseViewModel
     {
-        #region Services
+        #region Services 
         private ApiService _apiService;
         #endregion
 
         #region Attributes
+        private bool _isRefreshing;
+
+        private string _textFilter;
+
+        private List<Land> _resultListLands;
+
         private ObservableCollection<Land> _listLands;
         #endregion
 
@@ -23,10 +32,37 @@
             get { return this._listLands; }
             set { UpdateValueProperty(ref this._listLands, value); }
         }
+
+        public bool IsRefreshing
+        {
+            get { return this._isRefreshing; }
+            set { UpdateValueProperty(ref this._isRefreshing, value); }
+        }
+
+        public string TextFilter
+        {
+            get { return this._textFilter; }
+            set
+            {
+                UpdateValueProperty(ref this._textFilter, value);
+                this.EventSearch();
+            }
+        }
+        #endregion
+
+        #region Action
+        public ICommand ActionRefreshList
+        {
+            get { return new RelayCommand(EventRefreshList); }
+        }
+
+        public ICommand ActionSearchInList
+        {
+            get { return new RelayCommand(EventSearch); }
+        }
         #endregion
 
         #region Contructors
-
         public LandsViewModel()
         {
             this._apiService = new ApiService();
@@ -34,13 +70,35 @@
         }
         #endregion
 
+        #region ActionEvent
+        private void EventRefreshList() => this.LoadLands();
+
+        private void EventSearch()
+        {
+            if (string.IsNullOrEmpty(this.TextFilter))
+            {
+                this.ListLands = new ObservableCollection<Land>(_resultListLands);
+            }
+            else
+            {
+                this.ListLands = new ObservableCollection<Land>
+                    (_resultListLands.Where(
+                        l => l.Name.ToLower().Contains(this.TextFilter.ToLower())
+                          || l.Capital.ToLower().Contains(this.TextFilter.ToLower())
+                    ));
+            }
+        }
+        #endregion
+
         #region Methods
         private async void LoadLands()
         {
+            this.IsRefreshing = true;
             var connection = await this._apiService.CheckConnection();
 
             if (!connection.IsSuccess)
             {
+                this.IsRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert("Error", connection.Message, "Accept");
                 /// return to the previous Page
                 await Application.Current.MainPage.Navigation.PopAsync();
@@ -51,12 +109,14 @@
 
             if (!response.IsSuccess)
             {
+                this.IsRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert("Error", response.Message, "Accept");
                 return;
             }
 
-            var listLands = (List<Land>)response.Result;
-            this.ListLands = new ObservableCollection<Land>(listLands);
+            this._resultListLands = (List<Land>)response.Result;
+            this.ListLands = new ObservableCollection<Land>(_resultListLands);
+            this.IsRefreshing = false;
         }
         #endregion
     }

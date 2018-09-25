@@ -43,8 +43,8 @@
         }
         #endregion
 
-        #region ActionTap
-        public ICommand TapLogin
+        #region Action
+        public ICommand ActionTapLogin
         {
             get { return new RelayCommand(EventLogin); }
         }
