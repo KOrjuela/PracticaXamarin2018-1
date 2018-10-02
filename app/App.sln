@@ -11,11 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App", "App\App\App.csproj",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "COrjuela.Utility", "Utility\COrjuela.Utility.csproj", "{E6CFD2AF-EE2D-4B2F-A4AB-37EB342015DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Domain", "App.Domain\App.Domain.csproj", "{79200648-C4DE-4D25-86B8-343FF576BA41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Domain", "App.Domain\App.Domain.csproj", "{79200648-C4DE-4D25-86B8-343FF576BA41}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Backend", "App.Backend\App.Backend.csproj", "{3CC419B7-43A2-4E56-B4DE-F078221ADFF7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.API", "App.API\App.API.csproj", "{5D8BAF01-7CFA-490C-B356-B6FC88DD420B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebSites", "WebSites", "{1A9BEC96-0293-4A5D-8334-016732707680}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -240,6 +242,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{79200648-C4DE-4D25-86B8-343FF576BA41} = {1A9BEC96-0293-4A5D-8334-016732707680}
+		{3CC419B7-43A2-4E56-B4DE-F078221ADFF7} = {1A9BEC96-0293-4A5D-8334-016732707680}
+		{5D8BAF01-7CFA-490C-B356-B6FC88DD420B} = {1A9BEC96-0293-4A5D-8334-016732707680}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {51B44CFE-0195-4DFD-A44D-72F3AB2F5F84}

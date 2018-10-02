@@ -1,5 +1,6 @@
 ﻿namespace App.ViewModel
 {
+    using COrjuela.Utility.BaseEntities;
     using global::App.Model.Entities;
     using System.Collections.Generic;
 
@@ -7,6 +8,8 @@
     {
         #region Properties
         public List<Land> ListLands { get; set; }
+
+        public TokenResponse Token { get; set; }
         #endregion
 
         #region ViewModels
