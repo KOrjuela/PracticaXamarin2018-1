@@ -6,10 +6,131 @@
              Icon="ic_action_translate"
              Title="Traslations">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Traslations!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout  Padding="5"
+                      BindingContext="{Binding ViewModelLand}">
+            <Label FontSize="Large" 
+                   TextColor="Black" 
+                   FontAttributes="Bold"               
+                   HorizontalOptions="Center"                
+                   Text="{Binding Land.Name}">
+            </Label>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0"  
+                       Grid.Column="0"
+                       TextColor="Black"
+                       Text="Germany">
+                </Label>
+                <Label  Grid.Row="0" 
+                        Grid.Column="1"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        Text="{Binding Land.Translations.Germany}">
+                </Label>
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       TextColor="Black"
+                       Text="Spanish">
+                </Label>
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       Text="{Binding Land.Translations.Spanish}">
+                </Label>
+                <Label Grid.Row="2"
+                       Grid.Column="0"
+                       TextColor="Black"
+                       Text="French">
+                </Label>
+                <Label Grid.Row="2"
+                       Grid.Column="1"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       Text="{Binding Land.Translations.French}">
+                </Label>
+                <Label Grid.Row="3"
+                       Grid.Column="0"
+                       TextColor="Black"
+                       Text="Japanese">
+                </Label>
+                <Label Grid.Row="3"
+                       Grid.Column="1"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       Text="{Binding Land.Translations.Japanese}">
+                </Label>
+                <Label Grid.Row="4"
+                       Grid.Column="0"
+                       TextColor="Black"
+                       Text="Italian">
+                </Label>
+                <Label Grid.Row="4"
+                       Grid.Column="1"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       Text="{Binding Land.Translations.Italian}">
+                </Label>
+                <Label Grid.Row="5"
+                       Grid.Column="0"
+                       TextColor="Black"
+                       Text="Brazilian">
+                </Label>
+                <Label Grid.Row="5"
+                       Grid.Column="1"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       Text="{Binding Land.Translations.Brazilian}" >
+                </Label>
+                <Label Grid.Row="6"
+                       Grid.Column="0"
+                       TextColor="Black"
+                       Text="Portuges">
+                </Label>
+                <Label Grid.Row="6"
+                       Grid.Column="1"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       Text="{Binding Land.Translations.Portuges}">
+                </Label>
+                <Label
+                    Grid.Column="0"
+                    Grid.Row="7"
+                    TextColor="Black"
+                    Text="Dutch">
+                </Label>
+                <Label Grid.Row="7"
+                       Grid.Column="1"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       Text="{Binding Land.Translations.Dutch}">
+                </Label>
+                <Label  Grid.Row="8"
+                        Grid.Column="0"
+                        TextColor="Black"
+                        Text="Croatian">
+                </Label>
+                <Label Grid.Row="8"
+                       Grid.Column="1"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       Text="{Binding Land.Translations.Croatian}">
+                </Label>
+                <Label Grid.Row="9"
+                       Grid.Column="0"
+                       TextColor="Black"
+                       Text="Persian">
+                </Label>
+                <Label  Grid.Row="9"
+                        Grid.Column="1"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        Text="{Binding Land.Translations.Persian}">
+                </Label>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

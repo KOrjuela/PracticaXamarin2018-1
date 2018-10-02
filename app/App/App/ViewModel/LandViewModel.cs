@@ -10,6 +10,10 @@
     {
         #region Attributes
         private ObservableCollection<Border> _listBorders;
+
+        private ObservableCollection<Currency> _listCurrencies;
+
+        private ObservableCollection<Language> _listLanguages;
         #endregion
 
         #region Propperties
@@ -20,6 +24,18 @@
             get { return this._listBorders; }
             set { this.UpdateValueProperty(ref this._listBorders, value); }
         }
+
+        public ObservableCollection<Currency> ListCurrencies
+        {
+            get { return this._listCurrencies; }
+            set { this.UpdateValueProperty(ref this._listCurrencies, value); }
+        }
+
+        public ObservableCollection<Language> ListLanguages
+        {
+            get { return this._listLanguages; }
+            set { this.UpdateValueProperty(ref this._listLanguages, value); }
+        }
         #endregion
 
         #region Constructor
@@ -27,6 +43,8 @@
         {
             this.Land = landSelected;
             this.LoadBorders();
+            this.ListCurrencies = new ObservableCollection<Currency>(this.Land.Currencies);
+            this.ListLanguages = new ObservableCollection<Language>(this.Land.Languages);
         }
         #endregion
 
