@@ -3,6 +3,7 @@
     using BaseViewModels.Utility;
     using COrjuela.Utility.BaseServices;
     using GalaSoft.MvvmLight.Command;
+    using global::App.Resources;
     using global::App.View;
     using System.Windows.Input;
     using Xamarin.Forms;
@@ -68,16 +69,16 @@
 
         private async void EventLogin()
         {
-            this.Email = "ingkrlosorjuela@gmail.com";
-            this.Password = "Krlos8627*";
+            ///this.Email = "ingkrlosorjuela@gmail.com";
+            ///this.Password = "Krlos8627*";
 
             if (string.IsNullOrEmpty(this.Email))
             {
                 await Application.Current.MainPage.
                     DisplayAlert(
-                        "Error",
+                        Languages.Error,
                         "You must enter an Email",
-                        "Accept"
+                        Languages.Accept
                     );
 
                 return;
@@ -87,9 +88,9 @@
             {
                 await Application.Current.MainPage.
                     DisplayAlert(
-                        "Error",
+                       Languages.Error,
                         "You must enter an Password",
-                        "Accept"
+                        Languages.Accept
                     );
 
                 this.Password = string.Empty;
@@ -111,9 +112,9 @@
 
                 await Application.Current.MainPage.
                         DisplayAlert(
-                        "Error", 
-                        connection.Message, 
-                        "Accept"
+                        Languages.Error,
+                        connection.Message,
+                        Languages.Accept
                     );
 
                 return;
@@ -121,8 +122,8 @@
 
             var token = await this._apiService.
                 GetToken(
-                    "https://apppruebalanapi.azurewebsites.net", 
-                    this.Email, 
+                    "https://apppruebalanapi.azurewebsites.net",
+                    this.Email,
                     this.Password
                 );
 
@@ -133,9 +134,9 @@
 
                 await Application.Current.MainPage.
                     DisplayAlert(
-                        "Error",
+                        Languages.Error,
                         "Something was wrong, please try later.",
-                        "Accept"
+                        Languages.Accept
                     );
 
                 this.Password = string.Empty;
@@ -150,9 +151,9 @@
 
                 await Application.Current.MainPage.
                     DisplayAlert(
-                        "Error",
+                        Languages.Error,
                         token.ErrorDescription,
-                        "Accept"
+                        Languages.Accept
                     );
 
                 this.Password = string.Empty;

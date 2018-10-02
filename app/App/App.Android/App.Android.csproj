@@ -75,6 +75,7 @@
     <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="27.0.2.1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementations\Localize.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +107,10 @@
     <AndroidResource Include="Resources\drawable\ic_action_translate.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Utility\COrjuela.Utility.csproj">
+      <Project>{E6CFD2AF-EE2D-4B2F-A4AB-37EB342015DA}</Project>
+      <Name>COrjuela.Utility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App\App.csproj">
       <Project>{72DDA99A-6CC0-408D-B4ED-7C5C54AB2C4F}</Project>
       <Name>App</Name>

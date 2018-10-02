@@ -90,6 +90,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Implementations\Localize.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
@@ -170,6 +171,10 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\..\Utility\COrjuela.Utility.csproj">
+      <Project>{E6CFD2AF-EE2D-4B2F-A4AB-37EB342015DA}</Project>
+      <Name>COrjuela.Utility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App\App.csproj">
       <Project>{72DDA99A-6CC0-408D-B4ED-7C5C54AB2C4F}</Project>
       <Name>App</Name>
