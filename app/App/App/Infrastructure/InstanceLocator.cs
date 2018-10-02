@@ -8,13 +8,13 @@
     public class InstanceLocator
     {
         #region Properties
-        public MainViweModel ViweModelMain { get; set; }
+        public MainViewModel MainViewModel { get; set; }
         #endregion
 
         #region Contructors
         public InstanceLocator()
         {
-            this.ViweModelMain = new MainViweModel();
+            this.MainViewModel = new MainViewModel();
         }
         #endregion
     }

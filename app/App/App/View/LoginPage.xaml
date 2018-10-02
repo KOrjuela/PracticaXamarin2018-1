@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             BindingContext="{Binding ViweModelMain, Source={StaticResource Locator}}"
+             BindingContext="{Binding MainViewModel, Source={StaticResource Locator}}"
              x:Class="App.View.LoginPage"             
              BackgroundColor="White"
              Title="Login">
@@ -73,7 +73,11 @@
                              HorizontalOptions="Center"
                              VerticalOptions="EndAndExpand">
                     <Image WidthRequest="80"
-                           Source="facebook_logo" />
+                           Source="facebook_logo">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding ActionTapFacebook}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
                     <Image WidthRequest="80"
                            Source="twitter_logo" />
                     <Image WidthRequest="80"

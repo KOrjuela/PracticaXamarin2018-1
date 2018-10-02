@@ -75,7 +75,7 @@
         public string Flag { get; set; }
 
         [JsonProperty(PropertyName = "RegionalBlocs")]
-        public List<RegionalBloc> regionalBlocs { get; set; }
+        public List<RegionalBloc> RegionalBlocs { get; set; }
 
         [JsonProperty(PropertyName = "cioc")]
         public string Cioc { get; set; }

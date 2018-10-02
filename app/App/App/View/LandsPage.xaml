@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             BindingContext="{Binding ViweModelMain, Source={StaticResource Locator}}"
+             BindingContext="{Binding MainViewModel, Source={StaticResource Locator}}"
              x:Class="App.View.LandsPage"
+             BackgroundColor="Silver"
              Title="Lands">
     <ContentPage.Content>
-        <StackLayout Padding="5"                     
-                     BindingContext="{Binding ViewModelLands}">
+        <StackLayout BindingContext="{Binding ViewModelLands}">
             <SearchBar HeightRequest="46"
                        BackgroundColor="Silver"  
                        Placeholder="Search..."
@@ -14,7 +14,7 @@
                        SearchCommand="{Binding ActionSearchInList}">
             </SearchBar>
             <ListView HasUnevenRows="true" 
-                      BackgroundColor="White"
+                      BackgroundColor="Silver"
                       SeparatorVisibility="None"
                       IsPullToRefreshEnabled="true"
                       ItemsSource="{Binding ListLands}"
@@ -23,27 +23,34 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <StackLayout Grid.Column="0"
-                                             VerticalOptions="Center">
-                                    <Label FontSize="Medium" 
-                                           TextColor="Black"
-                                           FontAttributes="Bold"
-                                           Text="{Binding Name}">
-                                    </Label>
-                                    <Label TextColor="Black"
-                                           Text="{Binding Capital}">
-                                    </Label>
-                                </StackLayout>
-                                <Image Grid.Column="1"
-                                       HorizontalOptions="End" 
-                                       Source="chevron_right">
-                                </Image>
-                            </Grid>
+                            <Frame Margin="5"
+                                   HasShadow="True"
+                                   CornerRadius="20">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ActionTapSelectItem}" />
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Grid.Column="0"
+                                                 VerticalOptions="Center">
+                                        <Label FontSize="Medium" 
+                                               TextColor="Black"
+                                               FontAttributes="Bold"
+                                               Text="{Binding Name}">
+                                        </Label>
+                                        <Label TextColor="Black"
+                                               Text="{Binding Capital}">
+                                        </Label>
+                                    </StackLayout>
+                                    <Image Grid.Column="1"
+                                           HorizontalOptions="End" 
+                                           Source="chevron_right">
+                                    </Image>
+                                </Grid>
+                            </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

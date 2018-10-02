@@ -103,7 +103,7 @@
             this.Email = string.Empty;
             this.Password = string.Empty;
 
-            MainViweModel.GetInstance().ViewModelLands = new LandsViewModel();
+            MainViewModel.GetInstance().ViewModelLands = new LandsViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
         }
 
