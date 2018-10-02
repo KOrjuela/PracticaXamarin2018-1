@@ -1,10 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              BindingContext="{Binding MainViewModel, Source={StaticResource Locator}}"
              x:Class="App.View.LandsPage"
              BackgroundColor="Silver"
              Title="Lands">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ffimageloadingsvg:SvgImageSourceConverter x:Key="SvgImageSourceConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout BindingContext="{Binding ViewModelLands}">
             <SearchBar HeightRequest="46"
@@ -31,10 +38,15 @@
                                 </Frame.GestureRecognizers>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <StackLayout Grid.Column="0"
+                                    <ffimageloading:CachedImage  Grid.Column="0"
+                                                                 HeightRequest="30"
+                                                                 WidthRequest="60"
+                                                                 Source="{Binding Flag, Converter={StaticResource SvgImageSourceConverter}}" />
+                                    <StackLayout Grid.Column="1"
                                                  VerticalOptions="Center">
                                         <Label FontSize="Medium" 
                                                TextColor="Black"
@@ -45,7 +57,8 @@
                                                Text="{Binding Capital}">
                                         </Label>
                                     </StackLayout>
-                                    <Image Grid.Column="1"
+
+                                    <Image Grid.Column="2"
                                            HorizontalOptions="End" 
                                            Source="chevron_right">
                                     </Image>

@@ -67,7 +67,10 @@
         #region ActionEvent
 
         private async void EventLogin()
-        {           
+        {
+            this.Email = "ingkrlosorjuela@gmail.com";
+            this.Password = "Krlos8627*";
+
             if (string.IsNullOrEmpty(this.Email))
             {
                 await Application.Current.MainPage.
