@@ -19,19 +19,19 @@
         public string Email
         {
             get { return this._email; }
-            set { UpdateValueProperty(ref this._email, value); }
+            set { this.UpdateValueProperty(ref this._email, value); }
         }
 
         public string Password
         {
             get { return this._password; }
-            set { UpdateValueProperty(ref this._password, value); }
+            set { this.UpdateValueProperty(ref this._password, value); }
         }
 
         public bool IsRunning
         {
             get { return this._isRunning; }
-            set { UpdateValueProperty(ref this._isRunning, value); }
+            set { this.UpdateValueProperty(ref this._isRunning, value); }
         }
 
         public bool IsRemembered { get; set; }
@@ -39,7 +39,7 @@
         public bool IsEnable
         {
             get { return this._isEnable; }
-            set { UpdateValueProperty(ref this._isEnable, value); }
+            set { this.UpdateValueProperty(ref this._isEnable, value); }
         }
         #endregion
 

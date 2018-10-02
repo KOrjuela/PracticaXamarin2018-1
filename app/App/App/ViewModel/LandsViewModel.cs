@@ -19,9 +19,7 @@
         #region Attributes
         private bool _isRefreshing;
 
-        private string _textFilter;
-
-        private List<Land> _resultListLands;
+        private string _textFilter;       
 
         private ObservableCollection<LandItemViewModel> _listLands;
         #endregion
@@ -30,13 +28,13 @@
         public ObservableCollection<LandItemViewModel> ListLands
         {
             get { return this._listLands; }
-            set { UpdateValueProperty(ref this._listLands, value); }
+            set { this.UpdateValueProperty(ref this._listLands, value); }
         }
 
         public bool IsRefreshing
         {
             get { return this._isRefreshing; }
-            set { UpdateValueProperty(ref this._isRefreshing, value); }
+            set { this.UpdateValueProperty(ref this._isRefreshing, value); }
         }
 
         public string TextFilter
@@ -44,7 +42,7 @@
             get { return this._textFilter; }
             set
             {
-                UpdateValueProperty(ref this._textFilter, value);
+                this.UpdateValueProperty(ref this._textFilter, value);
                 this.EventSearch();
             }
         }
@@ -114,16 +112,16 @@
                 return;
             }
 
-            this._resultListLands = (List<Land>)response.Result;
+            MainViewModel.GetInstance().ListLands = (List<Land>)response.Result;
             this.ListLands = new ObservableCollection<LandItemViewModel>(this.ConvertToLandItemViewModel());
             this.IsRefreshing = false;
         }
 
         private IEnumerable<LandItemViewModel> ConvertToLandItemViewModel()
         {
-            if (this._resultListLands != null && this._resultListLands.Count > 0)
+            if (MainViewModel.GetInstance().ListLands != null && MainViewModel.GetInstance().ListLands.Count > 0)
             {
-                return this._resultListLands.Select(l => new LandItemViewModel
+                return MainViewModel.GetInstance().ListLands.Select(l => new LandItemViewModel
                 {
                     Alpha2Code = l.Alpha2Code,
                     Alpha3Code = l.Alpha3Code,
