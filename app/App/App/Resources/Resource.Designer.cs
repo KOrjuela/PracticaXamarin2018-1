@@ -70,6 +70,15 @@ namespace App.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ¡Enter your email!.
+        /// </summary>
+        public static string EmailPlaceHolder {
+            get {
+                return ResourceManager.GetString("EmailPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You must enter an Email.
         /// </summary>
         public static string EmailValidation {
@@ -84,6 +93,15 @@ namespace App.Resources {
         public static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rememberme on this divece..
+        /// </summary>
+        public static string Rememberme {
+            get {
+                return ResourceManager.GetString("Rememberme", resourceCulture);
             }
         }
     }

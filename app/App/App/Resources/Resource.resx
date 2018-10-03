@@ -120,10 +120,16 @@
   <data name="Accept" xml:space="preserve">
     <value>Accept</value>
   </data>
+  <data name="EmailPlaceHolder" xml:space="preserve">
+    <value>¡Enter your email!</value>
+  </data>
   <data name="EmailValidation" xml:space="preserve">
     <value>You must enter an Email</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
+  </data>
+  <data name="Rememberme" xml:space="preserve">
+    <value>Rememberme on this divece.</value>
   </data>
 </root>

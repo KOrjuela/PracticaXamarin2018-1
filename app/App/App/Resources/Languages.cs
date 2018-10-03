@@ -22,6 +22,16 @@
         {
             get { return Resource.Error; }
         }
+
+        public static string Rememberme
+        {
+            get { return Resource.Rememberme; }
+        }
+
+        public static string EmailPlaceHolder
+        {
+            get { return Resource.EmailPlaceHolder; }
+        }
         #endregion
 
 
