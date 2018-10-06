@@ -1,6 +1,7 @@
 ﻿namespace App.ViewModel
 {
     using GalaSoft.MvvmLight.Command;
+    using global::App.Helpers;
     using global::App.View;
     using System.Windows.Input;
     using Xamarin.Forms;
@@ -28,8 +29,15 @@
             switch (this.PageName)
             {
                 case "LoginPage":
-                     Application.Current.MainPage = new LoginPage();
-                     break;
+                    Settings.Token = string.Empty;
+                    Settings.TokenType = string.Empty;
+
+                    var viewModel = MainViewModel.GetInstance();
+                    viewModel.Token = string.Empty;
+                    viewModel.TokenType = string.Empty;
+
+                    Application.Current.MainPage = new LoginPage();
+                    break;
 
                 default:
                     break;

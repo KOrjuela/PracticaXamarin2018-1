@@ -3,7 +3,9 @@
 [assembly: Xamarin.Forms.Xaml.XamlCompilation(Xamarin.Forms.Xaml.XamlCompilationOptions.Compile)]
 namespace App
 {
+    using global::App.Helpers;
     using global::App.View;
+    using global::App.ViewModel;
     using Xamarin.Forms;
 
     public partial class App : Application
@@ -18,8 +20,21 @@ namespace App
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage());
+            if (string.IsNullOrEmpty(Settings.Token))
+            {
+                MainPage = new NavigationPage(new LoginPage());
+            }
+            else
+            {
+                var viewModel = MainViewModel.GetInstance();
+                viewModel.Token = Settings.Token;
+                viewModel.TokenType = Settings.TokenType;
+                viewModel.ViewModelLands = new LandsViewModel();
+                MainPage = new MasterPage();
+            }
+           
         }
+
         #endregion
 
         #region Methods

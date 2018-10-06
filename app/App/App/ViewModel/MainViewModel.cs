@@ -10,7 +10,11 @@
         #region Properties
         public List<Land> ListLands { get; set; }
 
-        public TokenResponse Token { get; set; }
+        ///public TokenResponse Token { get; set; }
+
+        public string Token { get; set; }
+
+        public string TokenType { get; set; }
 
         public ObservableCollection<MenuItemViewModel> MenuItems { get; set; }
         #endregion

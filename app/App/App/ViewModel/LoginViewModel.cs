@@ -2,6 +2,7 @@
 {
     using BaseViewModels.Utility;
     using GalaSoft.MvvmLight.Command;
+    using global::App.Helpers;
     using global::App.Resources;
     using global::App.Services;
     using global::App.View;
@@ -69,8 +70,8 @@
 
         private async void EventLogin()
         {
-            this.Email = "ingkrlosorjuela@gmail.com";
-            this.Password = "123456";
+            ///this.Email = "ingkrlosorjuela@gmail.com";
+            ///this.Password = "123456";
 
             if (string.IsNullOrEmpty(this.Email))
             {
@@ -162,7 +163,15 @@
             }
 
             var mainViewModel = MainViewModel.GetInstance();
-            mainViewModel.Token = token;
+            mainViewModel.Token = token.AccessToken;
+            mainViewModel.TokenType = token.TokenType;
+
+            if (this.IsRemembered)
+            {
+                /// Guardamos daron en persistencia
+                Settings.Token = token.AccessToken;
+                Settings.TokenType = token.TokenType;
+            }
 
             this.IsRunning = false;
             this.IsEnabled = true;

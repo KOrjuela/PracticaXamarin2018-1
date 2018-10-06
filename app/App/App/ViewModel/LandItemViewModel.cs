@@ -20,7 +20,7 @@
         private async void EventSelectItemLand()
         {
             MainViewModel.GetInstance().ViewModelLand = new LandViewModel(this);
-            await Application.Current.MainPage.Navigation.PushAsync(new LandTabbedPage());
+            await App.Navegator.PushAsync(new LandTabbedPage());
         }
         #endregion
     }
