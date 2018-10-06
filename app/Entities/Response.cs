@@ -1,4 +1,4 @@
-﻿namespace Utility.BaseEntities
+﻿namespace Entities
 {
     /// <summary>
     /// Clase que contiene la respuesta retornada de una operación

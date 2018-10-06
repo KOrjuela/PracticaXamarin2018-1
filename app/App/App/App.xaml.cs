@@ -1,6 +1,6 @@
 ﻿
-using Xamarin.Forms.Xaml;
-[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
+
+[assembly: Xamarin.Forms.Xaml.XamlCompilation(Xamarin.Forms.Xaml.XamlCompilationOptions.Compile)]
 namespace App
 {
     using global::App.View;
@@ -8,16 +8,21 @@ namespace App
 
     public partial class App : Application
     {
+        #region Properties
+        public static NavigationPage Navegator { get; internal set; }
+        #endregion
+
+
         #region Constructor
         public App()
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage( new LoginPage());
+            MainPage = new NavigationPage(new LoginPage());
         }
         #endregion
 
-        #region SystemState
+        #region Methods
         protected override void OnStart()
         {
             // Handle when your app starts

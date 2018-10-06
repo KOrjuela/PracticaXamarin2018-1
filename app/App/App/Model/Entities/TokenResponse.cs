@@ -1,4 +1,4 @@
-﻿namespace COrjuela.Utility.BaseEntities
+﻿namespace App.Model.Entities
 {
     using System;
     using Newtonsoft.Json;

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:App.Resources;assembly=App"
              BindingContext="{Binding MainViewModel, Source={StaticResource Locator}}"
              x:Class="App.View.LoginPage"             
              BackgroundColor="White"
@@ -23,7 +24,7 @@
                     <Entry Grid.Row="0"
                            Grid.Column="1"
                            Keyboard="Email"                           
-                           Placeholder="¡Enter your email!"
+                           Placeholder="{resource:Translate EmailPlaceHolder}"
                            Text="{Binding Email, Mode=TwoWay}"/>
                     <Label Grid.Row="1"
                            Grid.Column="0"
@@ -40,7 +41,7 @@
                 <StackLayout Margin="10,0"
                              Orientation="Horizontal"
                              VerticalOptions="CenterAndExpand">
-                    <Label Text="Rememberme on this divece"
+                    <Label Text="{resource:Translate Rememberme}"
                            VerticalOptions="Center"
                            HorizontalOptions="StartAndExpand"/>
                     <Switch HorizontalOptions="End"

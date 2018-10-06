@@ -1,9 +1,9 @@
 ﻿namespace App.ViewModel
 {
     using BaseViewModels.Utility;
-    using COrjuela.Utility.BaseServices;
     using GalaSoft.MvvmLight.Command;
     using global::App.Model.Entities;
+    using global::App.Services;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;

@@ -1,9 +1,9 @@
 ﻿namespace App.ViewModel
 {
     using BaseViewModels.Utility;
-    using COrjuela.Utility.BaseServices;
     using GalaSoft.MvvmLight.Command;
     using global::App.Resources;
+    using global::App.Services;
     using global::App.View;
     using System.Windows.Input;
     using Xamarin.Forms;
@@ -69,8 +69,8 @@
 
         private async void EventLogin()
         {
-            ///this.Email = "ingkrlosorjuela@gmail.com";
-            ///this.Password = "Krlos8627*";
+            this.Email = "ingkrlosorjuela@gmail.com";
+            this.Password = "123456";
 
             if (string.IsNullOrEmpty(this.Email))
             {
@@ -171,7 +171,9 @@
             this.Password = string.Empty;
 
             mainViewModel.ViewModelLands = new LandsViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
+            /// await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
+            Application.Current.MainPage = new MasterPage();
+
         }
 
         #endregion
