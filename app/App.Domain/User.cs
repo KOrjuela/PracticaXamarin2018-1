@@ -1,5 +1,6 @@
-﻿namespace App.Domain
+﻿namespace Lands.Domain
 {
+    using Newtonsoft.Json;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
@@ -7,6 +8,11 @@
     {
         [Key]
         public int UserId { get; set; }
+
+        public int UserTypeId { get; set; }
+
+        [JsonIgnore]
+        public virtual UserType UserType { get; set; }
 
         [Display(Name = "First Name")]
         [Required(ErrorMessage = "The field {0} is requiered.")]
@@ -42,7 +48,7 @@
                 }
 
                 return string.Format(
-                    "https://apppruebalanapi.azurewebsites.net/{0}",
+                    "http://landsapi1.azurewebsites.net/{0}",
                     ImagePath.Substring(1));
             }
         }

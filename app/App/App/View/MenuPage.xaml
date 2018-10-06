@@ -4,6 +4,7 @@
              x:Class="App.View.MenuPage"
              BindingContext="{Binding MainViewModel, Source={StaticResource Locator}}"
              BackgroundColor="LightGray"
+             Icon="ic_shortcut_menu"
              Title="Menu">
     <ContentPage.Content>
         <StackLayout Padding="5,20,5,5">

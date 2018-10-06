@@ -198,6 +198,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\UserTypesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -205,6 +206,7 @@
     <Compile Include="Helpers\FilesHelper.cs" />
     <Compile Include="Helpers\MailHelper.cs" />
     <Compile Include="Helpers\UsersHelper.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LocalDataContext.cs" />
@@ -279,6 +281,11 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\UserTypes\Create.cshtml" />
+    <Content Include="Views\UserTypes\Delete.cshtml" />
+    <Content Include="Views\UserTypes\Details.cshtml" />
+    <Content Include="Views\UserTypes\Edit.cshtml" />
+    <Content Include="Views\UserTypes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -297,7 +304,7 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Downloads\Lands-master\Lands.Domain\Lands.Domain.csproj">
+    <ProjectReference Include="..\App.Domain\Lands.Domain.csproj">
       <Project>{f2e28bff-ef52-43d8-ab08-230d18b9d85a}</Project>
       <Name>Lands.Domain</Name>
     </ProjectReference>

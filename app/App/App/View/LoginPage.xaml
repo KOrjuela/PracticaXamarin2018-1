@@ -8,7 +8,7 @@
              Title="Login">
     <ContentPage.Content>
         <ScrollView BindingContext="{Binding ViewModelLogin}">
-            <StackLayout Padding="5,20,5,5">               
+            <StackLayout Padding="5">               
                 <Image Source="onu"
                        WidthRequest="200"/>
                 <Grid Margin="10,0"
