@@ -56,28 +56,28 @@
             base.Dispose(disposing);
         }
 
-        //// GET: Users/Create
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
+        // GET: Users/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
 
-        //// POST: Users/Create
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<ActionResult> Create(UserView view)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var user = this.ToUser(view);
-        //        db.Users.Add(user);
-        //        await db.SaveChangesAsync();
-        //        UsersHelper.CreateUserASP(view.Email, "User", view.Password);
-        //        return RedirectToAction("Index");
-        //    }
+        // POST: Users/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Create(UserView view)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = this.ToUser(view);
+                db.Users.Add(user);
+                await db.SaveChangesAsync();
+                UsersHelper.CreateUserASP(view.Email, "User", view.Password);
+                return RedirectToAction("Index");
+            }
 
-        //    return View(view);
-        //}
+            return View(view);
+        }
 
 
 

@@ -6,7 +6,14 @@
     <Application.Resources>
 
         <ResourceDictionary>
+            
+            <!--Referencias-->
             <infra:InstanceLocator x:Key="Locator" />
+            
+            <!--Constantes-->
+            <x:String x:Key="APILands">http://restcountries.eu</x:String>
+            <x:String x:Key="APILandsAzure">https://apppruebalanapi.azurewebsites.net</x:String>
+            
         </ResourceDictionary>
         
     </Application.Resources>

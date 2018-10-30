@@ -4,6 +4,8 @@
 namespace App
 {
     using global::App.Helpers;
+    using global::App.Model.Entities;
+    using global::App.Services;
     using global::App.View;
     using global::App.ViewModel;
     using Xamarin.Forms;
@@ -26,13 +28,17 @@ namespace App
             }
             else
             {
+                var dataServices = new DataService();
+
                 var viewModel = MainViewModel.GetInstance();
                 viewModel.Token = Settings.Token;
                 viewModel.TokenType = Settings.TokenType;
-                viewModel.ViewModelLands = new LandsViewModel();
+                viewModel.UserSesion = dataServices.First<UserLocal>(false);
+
+                viewModel.ViewModelLands = new LandsViewModel();     
                 MainPage = new MasterPage();
             }
-           
+
         }
 
         #endregion

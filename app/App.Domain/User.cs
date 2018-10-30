@@ -3,6 +3,7 @@
     using Newtonsoft.Json;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    
 
     public class User
     {
@@ -48,7 +49,7 @@
                 }
 
                 return string.Format(
-                    "http://landsapi1.azurewebsites.net/{0}",
+                    "https://apppruebalanapi.azurewebsites.net/{0}",
                     ImagePath.Substring(1));
             }
         }
@@ -61,5 +62,11 @@
                 return string.Format("{0} {1}", this.FirstName, this.LastName);
             }
         }
+
+        [NotMapped]
+        public byte[] ImageArray { get; internal set; }
+
+        [NotMapped]
+        public string Password { get; internal set; }
     }
 }

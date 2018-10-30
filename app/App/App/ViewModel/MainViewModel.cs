@@ -17,6 +17,8 @@
         public string TokenType { get; set; }
 
         public ObservableCollection<MenuItemViewModel> MenuItems { get; set; }
+
+        public UserLocal UserSesion { get; set; }
         #endregion
 
         #region ViewModels
@@ -25,6 +27,8 @@
         public LandsViewModel ViewModelLands { get; set; }
 
         public LandViewModel ViewModelLand { get; set; }
+
+        public RegisterViewModel ViewModelRegister { get; set; }
         #endregion
 
         #region Contructors

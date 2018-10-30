@@ -6,6 +6,7 @@
     using global::App.Resources;
     using global::App.Services;
     using global::App.View;
+    using System;
     using System.Windows.Input;
     using Xamarin.Forms;
 
@@ -13,6 +14,8 @@
     {
         #region Services
         private ApiService _apiService;
+
+        private DataService _apiDataService;
         #endregion
 
         #region Attributes
@@ -55,6 +58,13 @@
         {
             get { return new RelayCommand(EventLogin); }
         }
+
+        public ICommand ActionRegister
+        {
+            get { return new RelayCommand(EventRegister); }
+        }
+
+
         #endregion
 
         #region Contructors
@@ -63,15 +73,23 @@
             this.IsRemembered = true;
             this.IsEnabled = true;
             this._apiService = new ApiService();
+            this._apiDataService = new DataService();
         }
         #endregion
 
         #region ActionEvent
 
+        private async void EventRegister()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.ViewModelRegister = new RegisterViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
+        }
+
         private async void EventLogin()
         {
-            ///this.Email = "ingkrlosorjuela@gmail.com";
-            ///this.Password = "123456";
+            this.Email = "ingkrlosorjuela@gmail.com";
+            this.Password = "Krlos123*";
 
             if (string.IsNullOrEmpty(this.Email))
             {
@@ -121,9 +139,11 @@
                 return;
             }
 
+            var apiLandsAzure = Application.Current.Resources["APILandsAzure"].ToString();
+
             var token = await this._apiService.
                 GetToken(
-                    "https://apppruebalanapi.azurewebsites.net",
+                    apiLandsAzure,
                     this.Email,
                     this.Password
                 );
@@ -162,15 +182,29 @@
                 return;
             }
 
+            
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.Token = token.AccessToken;
             mainViewModel.TokenType = token.TokenType;
+
+            mainViewModel.UserSesion = new Model.Entities.UserLocal
+            {
+                Email = this.Email,
+                FirstName = "Carlos Augusto",
+                LastName = "Orjuela",
+                UserId = 1,
+                UserTypeId = 1,
+                Telephone = "3219620027"
+            };     
 
             if (this.IsRemembered)
             {
                 /// Guardamos daron en persistencia
                 Settings.Token = token.AccessToken;
                 Settings.TokenType = token.TokenType;
+
+                /// Eliminamos algun dato existente e insertamos uno nuevo
+                this._apiDataService.DeleteAllAndInsert(mainViewModel.UserSesion);
             }
 
             this.IsRunning = false;

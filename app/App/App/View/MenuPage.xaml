@@ -10,6 +10,12 @@
         <StackLayout Padding="5,20,5,5">
             <Image Source="onu"
                    WidthRequest="100"/>
+            <Label FontSize="Large" 
+                   TextColor="Black"
+                   FontAttributes="Bold" 
+                   HorizontalOptions="FillAndExpand"
+                   HorizontalTextAlignment="Center"
+                   Text="{Binding UserSesion.FullName, StringFormat='Hola {0}'}" />
             <ListView HasUnevenRows="True" 
                       SeparatorVisibility="None"
                       ItemsSource="{Binding MenuItems}" >
@@ -32,7 +38,7 @@
                                 <Label Grid.Column="1"
                                        Text="{Binding Title}"
                                        VerticalOptions="Center"     
-                                       TextColor="White"/>
+                                       TextColor="Black"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

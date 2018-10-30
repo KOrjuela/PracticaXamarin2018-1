@@ -68,6 +68,7 @@
                             HeightRequest="46"
                             BackgroundColor="Purple"
                             HorizontalOptions="FillAndExpand"
+                            Command="{Binding ActionRegister}"
                             IsEnabled="{Binding IsEnable, Mode=TwoWay}"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal"

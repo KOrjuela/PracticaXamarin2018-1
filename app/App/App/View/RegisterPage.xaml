@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.View.RegisterPage"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             BindingContext="{Binding MainViewModel, Source={StaticResource Locator}}"
+             Title="Register">
+    <ContentPage.Content>
+        <ScrollView BindingContext="{Binding ViewModelRegister}">
+            <StackLayout Padding="5">
+                <StackLayout Padding="5">
+
+                    <controls:CircleImage HeightRequest="150"
+                                          Source="{Binding ImageSource}">
+                        <controls:CircleImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ActionAddImage}" />
+                        </controls:CircleImage.GestureRecognizers>
+                    </controls:CircleImage>
+
+                    <Label FontSize="Small"  
+                           TextColor="Black"
+                           HorizontalOptions="Center"                              
+                           Text="Touch the image to change it" />
+
+                    <ActivityIndicator IsRunning="{Binding IsRunning, Mode=TwoWay}" />
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" 
+                               Grid.Column="0"  
+                               Text="Nombres"
+                               TextColor="Black" 
+                               VerticalOptions="Center" />
+
+                        <Entry Grid.Row="0" 
+                               Grid.Column="1" 
+                               TextColor="Black"        
+                               Placeholder="Enter names"
+                               Text="{Binding FirstName, Mode=TwoWay}" />
+
+                        <Label Grid.Row="1" 
+                               Grid.Column="0" 
+                               Text="Apellidos"
+                               TextColor="Black" 
+                               VerticalOptions="Center" />
+
+                        <Entry Grid.Row="1"
+                               Grid.Column="1" 
+                               TextColor="Black"
+                               Placeholder="Enter surnames"
+                               Text="{Binding LastName, Mode=TwoWay}" />
+
+                        <Label Grid.Row="2"
+                               Text="E-Mail" 
+                               Grid.Column="0" 
+                               TextColor="Black"                                                               
+                               VerticalOptions="Center" />
+
+                        <Entry  Grid.Row="2"
+                                Grid.Column="1"
+                                Keyboard="Email" 
+                                TextColor="Black" 
+                                Text="{Binding Email, Mode=TwoWay}"
+                                Placeholder="Enter email" />
+
+                        <Label Grid.Row="3"
+                               Grid.Column="0" 
+                               Text="Telephone"
+                               TextColor="Black" 
+                               VerticalOptions="Center" />
+
+                        <Entry Grid.Row="3"
+                               Grid.Column="1" 
+                               TextColor="Black" 
+                               Keyboard="Telephone" 
+                               Placeholder="Enter telephone"                                
+                               Text="{Binding Telephone, Mode=TwoWay}" />
+
+                        <Label Grid.Row="4"
+                               Grid.Column="0" 
+                               Text="Password"
+                               TextColor="Black"
+                               VerticalOptions="Center" />
+
+                        <Entry Grid.Row="4"           
+                               Grid.Column="1" 
+                               IsPassword="true" 
+                               TextColor="Black" 
+                               Placeholder="Enter Password"
+                               Text="{Binding Password, Mode=TwoWay}" />
+
+                        <Label Grid.Row="5"
+                               Grid.Column="0" 
+                               TextColor="Black"
+                               Text="Password"
+                               VerticalOptions="Center" />
+
+                        <Entry Grid.Row="5"
+                               Grid.Column="1" 
+                               IsPassword="true"  
+                               TextColor="Black"
+                               Placeholder="Confirm password"
+                               Text="{Binding Confirm, Mode=TwoWay}" />
+                    </Grid>
+
+                    <ActivityIndicator IsRunning="{Binding IsRunning, Mode=TwoWay}" />
+
+                    <Button Text="Register" 
+                            BorderRadius="23"  
+                            TextColor="White"
+                            HeightRequest="46"
+                            Margin="50,0,50,0"
+                            BackgroundColor="Navy" 
+                            Command="{Binding ActionRegister}"                              
+                            IsEnabled="{Binding IsEnabled, Mode=TwoWay}" />
+
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
